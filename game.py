@@ -18,10 +18,27 @@ screen.blit(intro, (0, 0))
 
 pygame.display.flip()
 
+size = None
+
+
+def askDisplay():
+    question1_font = pygame.font.Font(None, 30)
+    question1 = question1_font.render(
+        "Enter board size, 3, 4, 5: ", True, (0, 0, 0))
+
+
+def display():
+    board = [['' for _ in range(size)] for _ in range(size)]
+    print(board)
+
+
 while running:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            display()
+
 
 # two modes, multiplayer and single player
 # if multiplayer:
